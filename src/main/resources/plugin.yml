@@ -1,0 +1,6 @@
+name: XLicence
+version: '${version}'
+main: id.rajaopak.xlicence.XLicence
+api-version: 1.18
+authors: [ rajaopak ]
+description: licence plugin for XSeries plugin 
