@@ -41,13 +41,13 @@ public final class XLicence extends JavaPlugin {
         return licences.contains(licence);
     }
 
-    public static void init(Plugin plugin, String licence) {
+    public static void init(Plugin plugin) {
         if (Bukkit.getPluginManager().getPlugin(XLicence.getInstance().getName()) == null) {
             Bukkit.getPluginManager().disablePlugin(plugin);
             Bukkit.getLogger().severe("Please install " + XLicence.getInstance().getName() + " first!");
         }
 
-        if (!isLicence(licence)) {
+        if (!isLicence(XLicence.getInstance().getConfig().getString("licence"))) {
             plugin.getLogger().severe("Your license is invalid!");
             Bukkit.getPluginManager().disablePlugin(plugin);
             throw new IllegalArgumentException("Invalid licence");
