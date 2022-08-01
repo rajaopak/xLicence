@@ -1,4 +1,4 @@
-package id.rajaopak.xlicence;
+package dev.rajaopak.xlicence;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -33,10 +33,6 @@ public final class XLicence extends JavaPlugin {
         return instance;
     }
 
-    public static List<String> getLicences() {
-        return licences;
-    }
-
     public static boolean isLicence(String licence) {
         return licences.contains(licence);
     }
@@ -48,11 +44,7 @@ public final class XLicence extends JavaPlugin {
         }
 
         if (!isLicence(XLicence.getInstance().getConfig().getString("licence"))) {
-            plugin.getLogger().severe("Your license is invalid!");
             Bukkit.getPluginManager().disablePlugin(plugin);
-            throw new IllegalArgumentException("Invalid licence");
-        } else {
-            plugin.getLogger().info("Your license is valid!");
         }
     }
 }
