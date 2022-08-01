@@ -22,6 +22,12 @@ public final class XLicence extends JavaPlugin {
         // Plugin startup logic
         instance = this;
         saveDefaultConfig();
+        if (!licences.contains(getConfig().getString("licence"))) {
+            Bukkit.getPluginManager().disablePlugin(this);
+            Bukkit.getLogger().severe("Your license is invalid!");
+        } else {
+            Bukkit.getLogger().info("Your license is valid!");
+        }
     }
 
     @Override
@@ -38,11 +44,6 @@ public final class XLicence extends JavaPlugin {
     }
 
     public static void init(Plugin plugin) {
-        if (Bukkit.getPluginManager().getPlugin(XLicence.getInstance().getName()) == null) {
-            Bukkit.getPluginManager().disablePlugin(plugin);
-            Bukkit.getLogger().severe("Please install " + XLicence.getInstance().getName() + " first!");
-        }
-
         if (!isLicence(XLicence.getInstance().getConfig().getString("licence"))) {
             Bukkit.getPluginManager().disablePlugin(plugin);
         }
