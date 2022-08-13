@@ -24,6 +24,7 @@ public final class XLicence extends JavaPlugin {
             getLogger().info("Please enter your license key in config.yml.");
             getLogger().info("After that, restart your server.");
             getLogger().info("Thank you for using this plugin.");
+            return;
         }
 
         saveDefaultConfig();
