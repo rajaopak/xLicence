@@ -46,6 +46,6 @@ processResources {
     }
 }
 
-jar {
+/*jar {
     destinationDir file('D:\\server\\1.18.2\\plugins')
-}
+}*/
