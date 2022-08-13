@@ -45,6 +45,6 @@ public final class XLicence extends JavaPlugin {
     public static boolean isLicenseValid() {
         return new AdvancedLicense(getInstance().getConfig().getString("licence"),
                 "https://mc-challenge.com/xlicence/verify.php", getInstance())
-                .setSecurityKey("7w@hDaq49rFVscz!Djks*ZADSo^udR83qEwuI").register();
+                .setSecurityKey("7w@hDaq49rFVscz!Djks*ZADSo^udR83qEwuI").isValidSimple();
     }
 }
