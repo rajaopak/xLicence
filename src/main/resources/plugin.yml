@@ -1,6 +1,6 @@
 name: XLicence
 version: '${version}'
 main: dev.rajaopak.xlicence.XLicence
-api-version: 1.18
+api-version: 1.13
 authors: [ rajaopak ]
 description: licence plugin for my XSeries plugin

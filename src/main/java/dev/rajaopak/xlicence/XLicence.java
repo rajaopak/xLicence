@@ -20,6 +20,7 @@ public final class XLicence extends JavaPlugin {
         if (firstRun) {
             firstRun = false;
             saveDefaultConfig();
+            this.getConfig().options().copyDefaults(true);
             getLogger().info("Its your first run, config.yml has been generated.");
             getLogger().info("Please enter your license key in config.yml.");
             getLogger().info("After that, restart your server.");
@@ -28,8 +29,11 @@ public final class XLicence extends JavaPlugin {
         }
 
         saveDefaultConfig();
-        if (!new AdvancedLicense(getConfig().getString("licence"), "https://mc-challenge.com/xlicence/verify.php", this).setSecurityKey("7w@hDaq49rFVscz!Djks*ZADSo^udR83qEwuI").register())
-            return;
+        if (!new AdvancedLicense(getConfig().getString("licence"), "https://mc-challenge.com/xlicence/verify.php", this).setSecurityKey("7w@hDaq49rFVscz!Djks*ZADSo^udR83qEwuI").register()) {
+            getLogger().severe("Failed to register license!");
+            getLogger().severe("Shutting down server...");
+            getServer().shutdown();
+        }
 
     }
 
